@@ -1,11 +1,13 @@
 const express = require('express')
+const multer = require('multer')
+const upload = multer()
 const app = express()
 
 app.use(express.json())
 
 
 
-app.post('/mail',(req,res)=>{
+app.post('/mail',upload.none(),(req,res)=>{
     console.log('new email is comming------>>>');
     console.log(req.body);
     console.log('end of email---------------------------------------------');
